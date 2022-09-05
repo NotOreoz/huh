@@ -1,7 +1,6 @@
 getgenv().Main_Settings = {
     ["Time_Between_Doors"] = 0.1,
-    ["Wait_On_Locked_Doors"] = 0.7,
-    ["Skip_Locked_Doors"] = true
+    ["Wait_On_Locked_Doors"] = 0.9
 }
 
 local Exploit = (syn and not is_sirhurt_closure and not pebc_execute and "Synapse") or ("Unsupported")
@@ -37,56 +36,24 @@ if game.GameId == 2440500124 then
         CurrentRoom = v
         if CurrentRoomNum == RoomNum then
             if v.Door:FindFirstChild("Lock") then 
-                if Main_Settings["Skip_Locked_Doors"] then
-                    print("Key Skipping Door",v.Name)
-                    CurrentRoom = game.Workspace.CurrentRooms[tostring(CurrentRoomNum+1)]
-                    if not CurrentRoom:FindFirstChild("Door") then
-                        for _1,v1 in pairs(v:GetDescendants()) do 
-                            if string.find(v1.Name,"Key") and v1:IsA("MeshPart") and v1.Parent.Parent.Name == "KeyObtain" then 
-                                KeyFound = true
-                                print("Key Door",v.Name.." Locked. Searching For Key")
-                                if string.find(v1.Parent.Name,"Drawer") then
-                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.Parent.Holder.CFrame
-                                    wait(.2)
-                                    fireproximityprompt(v1.Parent.Knobs.ActivateEventPrompt)
-                                    wait(.1)
-                                end
-                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.CFrame
-                                wait(.5)
-                                fireproximityprompt(v1.Parent.Parent.ModulePrompt)
-                                print("Key Door",v.Name.." Grabbed.")
-                                wait(Main_Settings["Wait On Locked Doors"])
-                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Lock.CFrame
-                                wait(Main_Settings["Wait On Locked Doors"])
-                                fireproximityprompt(CurrentRoom.Door.Lock.UnlockPrompt)
-                                print("Key Door",v.Name.." Opened.")
-                            end
+                for _1,v1 in pairs(v:GetDescendants()) do 
+                    if string.find(v1.Name,"Key") and v1:IsA("MeshPart") and v1.Parent.Parent.Name == "KeyObtain" then 
+                        KeyFound = true
+                        print("Key Door",v.Name.." Locked. Searching For Key")
+                        if string.find(v1.Parent.Name,"Drawer") then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.Parent.Holder.CFrame
+                            wait(.2)
+                            fireproximityprompt(v1.Parent.Knobs.ActivateEventPrompt)
+                            wait(.1)
                         end
-                    end
-                    for i = 1, 3 do 
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Door.CFrame * CFrame.new(0,i,0)
-                    end
-                else
-                    for _1,v1 in pairs(v:GetDescendants()) do 
-                        if string.find(v1.Name,"Key") and v1:IsA("MeshPart") and v1.Parent.Parent.Name == "KeyObtain" then 
-                            KeyFound = true
-                            print("Key Door",v.Name.." Locked. Searching For Key")
-                            if string.find(v1.Parent.Name,"Drawer") then
-                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.Parent.Holder.CFrame
-                                wait(.2)
-                                fireproximityprompt(v1.Parent.Knobs.ActivateEventPrompt)
-                                wait(.1)
-                            end
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.CFrame
-                            wait(.5)
-                            fireproximityprompt(v1.Parent.Parent.ModulePrompt)
-                            print("Key Door",v.Name.." Grabbed.")
-                            wait(Main_Settings["Wait On Locked Doors"])
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Lock.CFrame
-                            wait(Main_Settings["Wait On Locked Doors"])
-                            fireproximityprompt(CurrentRoom.Door.Lock.UnlockPrompt)
-                            print("Key Door",v.Name.." Opened.")
-                        end
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.CFrame
+                        wait(.5)
+                        fireproximityprompt(v1.Parent.Parent.ModulePrompt)
+                        wait(Main_Settings["Wait On Locked Doors"])
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Lock.CFrame
+                        wait(Main_Settings["Wait On Locked Doors"])
+                        fireproximityprompt(CurrentRoom.Door.Lock.UnlockPrompt)
+                        print("Key Door",v.Name.." Opened.")
                     end
                 end
             end
@@ -120,56 +87,24 @@ if game.GameId == 2440500124 then
             CurrentRoom = v
             if CurrentRoomNum == RoomNum then
                 if v.Door:FindFirstChild("Lock") then 
-                    if Main_Settings["Skip_Locked_Doors"] then
-                        print("Key Skipping Door",v.Name)
-                        CurrentRoom = game.Workspace.CurrentRooms[tostring(CurrentRoomNum+1)]
-                        if not CurrentRoom:FindFirstChild("Door") then
-                            for _1,v1 in pairs(v:GetDescendants()) do 
-                                if string.find(v1.Name,"Key") and v1:IsA("MeshPart") and v1.Parent.Parent.Name == "KeyObtain" then 
-                                    KeyFound = true
-                                    print("Key Door",v.Name.." Locked. Searching For Key")
-                                    if string.find(v1.Parent.Name,"Drawer") then
-                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.Parent.Holder.CFrame
-                                        wait(.2)
-                                        fireproximityprompt(v1.Parent.Knobs.ActivateEventPrompt)
-                                        wait(.1)
-                                    end
-                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.CFrame
-                                    wait(.5)
-                                    fireproximityprompt(v1.Parent.Parent.ModulePrompt)
-                                    print("Key Door",v.Name.." Grabbed.")
-                                    wait(Main_Settings["Wait On Locked Doors"])
-                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Lock.CFrame
-                                    wait(Main_Settings["Wait On Locked Doors"])
-                                    fireproximityprompt(CurrentRoom.Door.Lock.UnlockPrompt)
-                                    print("Key Door",v.Name.." Opened.")
-                                end
+                    for _1,v1 in pairs(v:GetDescendants()) do 
+                        if string.find(v1.Name,"Key") and v1:IsA("MeshPart") and v1.Parent.Parent.Name == "KeyObtain" then 
+                            KeyFound = true
+                            print("Key Door",v.Name.." Locked. Searching For Key")
+                            if string.find(v1.Parent.Name,"Drawer") then
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.Parent.Holder.CFrame
+                                wait(.2)
+                                fireproximityprompt(v1.Parent.Knobs.ActivateEventPrompt)
+                                wait(.1)
                             end
-                        end
-                        for i = 1, 3 do 
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Door.CFrame * CFrame.new(0,i,0)
-                        end
-                    else
-                        for _1,v1 in pairs(v:GetDescendants()) do 
-                            if string.find(v1.Name,"Key") and v1:IsA("MeshPart") and v1.Parent.Parent.Name == "KeyObtain" then 
-                                KeyFound = true
-                                print("Key Door",v.Name.." Locked. Searching For Key")
-                                if string.find(v1.Parent.Name,"Drawer") then
-                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.Parent.Holder.CFrame
-                                    wait(.2)
-                                    fireproximityprompt(v1.Parent.Knobs.ActivateEventPrompt)
-                                    wait(.1)
-                                end
-                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.CFrame
-                                wait(.5)
-                                fireproximityprompt(v1.Parent.Parent.ModulePrompt)
-                                print("Key Door",v.Name.." Grabbed.")
-                                wait(Main_Settings["Wait On Locked Doors"])
-                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Lock.CFrame
-                                wait(Main_Settings["Wait On Locked Doors"])
-                                fireproximityprompt(CurrentRoom.Door.Lock.UnlockPrompt)
-                                print("Key Door",v.Name.." Opened.")
-                            end
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.CFrame
+                            wait(.5)
+                            fireproximityprompt(v1.Parent.Parent.ModulePrompt)
+                            wait(Main_Settings["Wait_On_Locked_Doors"])
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Lock.CFrame
+                            wait(Main_Settings["Wait_On_Locked_Doors"])
+                            fireproximityprompt(CurrentRoom.Door.Lock.UnlockPrompt)
+                            print("Key Door",v.Name.." Opened.")
                         end
                     end
                 end
