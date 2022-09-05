@@ -1,10 +1,11 @@
 repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name) 
 repeat task.wait() until game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart")
+repeat task.wait() until game.Workspace:FindFirstChild("CurrentRooms")
+repeat task.wait() until game.Workspace:FindFirstChild("CurrentRooms"):FindFirstChild("0")
 local function notif(ST,TT) game:GetService("StarterGui"):SetCore("SendNotification",{ Title = ST, Text = TT, Icon = "rbxassetid://"}) end
 
 if game.GameId == 2440500124 then 
-    repeat task.wait() until game.Workspace:FindFirstChild("CurrentRooms"):FindFirstChild("0")
     notif("Script Started","Press Del (SynX Internal UI To see whats happening.")
     repeat
         fireproximityprompt(game.Workspace.CurrentRooms["0"].StarterElevator.Model.Model.SkipButton.SkipPrompt)
@@ -27,13 +28,10 @@ if game.GameId == 2440500124 then
 
     game:GetService("Workspace").CurrentRooms.ChildAdded:Connect(function(v)
         repeat task.wait() until v:FindFirstChild("Door")
-        repeat task.wait() until v.Door:FindFirstChild("Hidden")
         CurrentRoomNum = CurrentRoomNum + 1
         if CurrentRoomNum >= 50  then 
             notif("Reached 50","Restarting")
-            game.Players.LocalPlayer.Character.Humanoid.Health = 0
-            wait(5)
-            game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
+            game.Players.LocalPlayer.Character.Humanoid.Health = 1
             wait(math.huge)
         end
         if CurrentRoomNum <= 5 then 
@@ -63,16 +61,13 @@ queue_on_teleport or syn and syn.queue_on_teleport
 wait(5)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NotOreoz/huh/main/T1.lua"))()
 ]]
---
 spawn(function()
-    for i = 1, 35 do 
-        print(i.."s | Restarting at 35s")
-        if i == 35 or game.Players.LocalPlayer.Character.Humanoid.Health ~= 100 then
-            notif("Restarting","Automatic Restart (35s) Or you Took Damage.")
+    for i = 1, 45 do 
+        print(i.."s | Restarting at 45s")
+        if i == 45 or game.Players.LocalPlayer.Character.Humanoid.Health ~= 100 then
+            notif("Restarting","Automatic Restart (45s), Door 50, Or you Took Damage.")
             game.Players.LocalPlayer.Character.Humanoid.Health = 0
             wait(5)
-            game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
-            wait(25)
             game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
         end
         wait(1)
