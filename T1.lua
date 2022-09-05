@@ -80,6 +80,13 @@ if game.GameId == 2440500124 then
             else
                 wait(Settings["Time Between Doors"])
             end
+            if game.Players.LocalPlayer.Character.Humanoid.Health < 99 then 
+                print("Took Damage, Restarting In 10s")
+                wait(10)
+                game.Players.LocalPlayer.Character.Humanoid.Health = 0
+                wait(5)
+                game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
+            end
         end
     end
 
