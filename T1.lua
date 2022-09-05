@@ -1,23 +1,19 @@
 local Exploit = (syn and not is_sirhurt_closure and not pebc_execute and "Synapse") or ("Unsupported")
 
 if Exploit ~= "Synapse" then 
-    game.Players.LocalPlayer:Kick("SYNAPSE ONLY")
+    game.Players.LocalPlayer:Kick("SynX Only")
 end
 
 if StoredSettings[1] == nil then
     getgenv().StoredSettings = Main_Settings
     local Settings = Main_Settings
+    print("Stored Settings!")
 else
     local Settings = StoredSettings
 end
 
-local function notif(ST,TT)
-    game:GetService("StarterGui"):SetCore("SendNotification",{
-    	Title = ST,
-    	Text = TT,
-    	Icon = "rbxassetid://"
-    })
-end
+local function notif(ST,TT) game:GetService("StarterGui"):SetCore("SendNotification",{ Title = ST, Text = TT, Icon = "rbxassetid://"}) end
+
 game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 
 if game.GameId == 2440500124 then 
