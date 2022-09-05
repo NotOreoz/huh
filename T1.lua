@@ -161,4 +161,4 @@ if game.GameId == 2440500124 then
     end)
 end
 
-local queue_on_teleport = queue_on_teleport or syn andsyn.queue_on_teleport [[repeat wait() until game:IsLoaded() wait(7) loadstring(game:HttpGet("https://raw.githubusercontent.com/NotOreoz/huh/main/T1"))()]]
+local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport [[repeat wait() until game:IsLoaded() wait(7) loadstring(game:HttpGet("https://raw.githubusercontent.com/NotOreoz/huh/main/T1.lua"))()]]
