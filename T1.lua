@@ -66,7 +66,7 @@ if game.GameId == 2440500124 then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Door.CFrame
             end
             KeyFound = false
-            wait(0.1)
+            wait(2)
         end
     end
 
