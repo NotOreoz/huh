@@ -6,11 +6,17 @@ repeat task.wait() until game.Workspace:FindFirstChild(game.Players.LocalPlayer.
 print("Found Player HumanoidRootPart")
 repeat task.wait() until game.Workspace:FindFirstChild("CurrentRooms")
 print("Found CurrentRoom Folder")
+repeat task.wait() until game.Workspace:FindFirstChild("CurrentRooms"):FindFirstChild("0")
+print("Found Room 0")
+repeat task.wait() until game.Workspace:FindFirstChild("CurrentRooms"):FindFirstChild("0"):FindFirstChild("StarterElevator")
+print("Found Starter Elevator")
+print("Waiting 7 Seconds (For the game to load properly)")
 local function notif(ST,TT) game:GetService("StarterGui"):SetCore("SendNotification",{ Title = ST, Text = TT, Icon = "rbxassetid://"}) end
 wait(7)
-print("Wait 7 Over")
+print("Wait Over")
 if game.GameId == 2440500124 then 
     notif("Script Started",".")
+    notif("SynX","Open Internal UI and enable output redirection to see the script progress")
     print("Started")
     repeat
         fireproximityprompt(game.Workspace.CurrentRooms["0"].StarterElevator.Model.Model.SkipButton.SkipPrompt)
@@ -68,8 +74,8 @@ local queue_on_teleport =
 queue_on_teleport or syn and syn.queue_on_teleport 
 [[
 wait(5)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/NotOreoz/huh/main/T1.lua"))()
 ]]
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/NotOreoz/huh/main/T1.lua"))()
 spawn(function()
     for i = 1, 45 do 
         print(i.."s | Restarting at 45s")
