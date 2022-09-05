@@ -1,8 +1,3 @@
-getgenv().Main_Settings = {
-    ["Time_Between_Doors"] = 0.1,
-    ["Wait_On_Locked_Doors"] = 0.8
-}
-
 local Exploit = (syn and not is_sirhurt_closure and not pebc_execute and "Synapse") or ("Unsupported")
 
 if Exploit ~= "Synapse" then 
@@ -49,9 +44,9 @@ if game.GameId == 2440500124 then
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.CFrame
                         wait(.5)
                         fireproximityprompt(v1.Parent.Parent.ModulePrompt)
-                        wait(Main_Settings["Wait On Locked Doors"])
+                        wait(1)
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Lock.CFrame
-                        wait(Main_Settings["Wait On Locked Doors"])
+                        wait(1.5)
                         fireproximityprompt(CurrentRoom.Door.Lock.UnlockPrompt)
                         print("Key Door",v.Name.." Opened.")
                     end
@@ -71,11 +66,7 @@ if game.GameId == 2440500124 then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Door.CFrame
             end
             KeyFound = false
-            if Main_Settings["Time_Between_Doors"] == 0 then 
-                task.wait(1/60)
-            else
-                wait(Main_Settings["Time_Between_Doors"])
-            end
+            wait(0.1)
         end
     end
 
@@ -106,9 +97,9 @@ if game.GameId == 2440500124 then
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.CFrame
                             wait(.5)
                             fireproximityprompt(v1.Parent.Parent.ModulePrompt)
-                            wait(Main_Settings["Wait_On_Locked_Doors"])
+                            wait(1)
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Lock.CFrame
-                            wait(Main_Settings["Wait_On_Locked_Doors"])
+                            wait(1.5)
                             fireproximityprompt(CurrentRoom.Door.Lock.UnlockPrompt)
                             print("Key Door",v.Name.." Opened.")
                         end
@@ -128,11 +119,7 @@ if game.GameId == 2440500124 then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Door.CFrame
                 end
                 KeyFound = false
-                if Main_Settings["Time_Between_Doors"] == 0 then 
-                    task.wait(1/60)
-                else
-                    wait(Main_Settings["Time_Between_Doors"])
-                end
+                wait(0.1)
             end
         end
     end)
