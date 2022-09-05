@@ -1,22 +1,4 @@
-local function getexploit()
-local exploit =
-(syn and not is_sirhurt_closure and not pebc_execute and "Synapse") or
-(secure_load and "Sentinel") or
-(is_sirhurt_closure and "Sirhurt") or
-(pebc_execute and "ProtoSmasher") or
-(KRNL_LOADED and "Krnl") or
-(WrapGlobal and "WeAreDevs") or
-(isvm and "Proxo") or
-(shadow_env and "Shadow") or
-(jit and "EasyExploits") or
-(getscriptenvs and "Calamari") or
-(unit and not syn and "Unit") or
-(OXYGEN_LOADED and "Oxygen U") or
-(IsElectron and "Electron") or
-("Unsupported")
-return exploit
-end
-local Exploit = getexploit()
+local Exploit = (syn and not is_sirhurt_closure and not pebc_execute and "Synapse") or ("Unsupported")
 
 if Exploit ~= "Synapse" then 
     game.Players.LocalPlayer:Kick("SYNAPSE ONLY")
@@ -106,6 +88,7 @@ if game.GameId == 2440500124 then
         print("Room:",CurrentRoomNum) 
         if CurrentRoomNum == 50 then 
             game.Players.LocalPlayer.Character.Humanoid.Health = 0
+            print("Room 50! Killing/Restarting!")
             wait(5)
             game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
             wait(999)
