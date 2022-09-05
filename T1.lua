@@ -73,9 +73,9 @@ end
 local queue_on_teleport = 
 queue_on_teleport or syn and syn.queue_on_teleport 
 [[
-wait(5)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NotOreoz/huh/main/T1.lua"))()
 ]]
---loadstring(game:HttpGet("https://raw.githubusercontent.com/NotOreoz/huh/main/T1.lua"))()
+
 spawn(function()
     for i = 1, 45 do 
         print(i.."s | Restarting at 45s")
