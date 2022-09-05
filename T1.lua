@@ -4,7 +4,12 @@ if Exploit ~= "Synapse" then
     game.Players.LocalPlayer:Kick("SYNAPSE ONLY")
 end
 
-local Settings = Main_Settings
+if StoredSettings[1] == nil then
+    getgenv().StoredSettings = Main_Settings
+    local Settings = Main_Settings
+else
+    local Settings = StoredSettings
+end
 
 local function notif(ST,TT)
     game:GetService("StarterGui"):SetCore("SendNotification",{
