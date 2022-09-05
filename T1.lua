@@ -119,7 +119,7 @@ if game.GameId == 2440500124 then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Door.CFrame
                 end
                 KeyFound = false
-                wait(0.1)
+                wait(0.3)
             end
         end
     end)
@@ -131,3 +131,15 @@ queue_on_teleport or syn and syn.queue_on_teleport
 wait(7) 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NotOreoz/huh/main/T1.lua"))()
 ]]
+
+spawn(function()
+    for i = 1, 35 do 
+        if i == 60 then
+            game.Players.LocalPlayer.Character.Humanoid.Health = 0
+            wait(5)
+            game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
+            wait(math.huge)
+        end
+        wait(1)
+    end
+end)
