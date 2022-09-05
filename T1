@@ -107,7 +107,7 @@ if game.GameId == 2440500124 then
             game.Players.LocalPlayer.Character.Humanoid.Health = 0
             wait(5)
             game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
-            syn.queue_on_teleport(loadstring(game:HttpGet("https://pastebin.com/raw/dHpCjJFa"))())
+            syn.queue_on_teleport(loadstring(game:HttpGet("https://raw.githubusercontent.com/NotOreoz/huh/main/T1"))())
             wait(999)
         end
         for _,v in pairs(game:GetService("Workspace").CurrentRooms:GetChildren()) do 
