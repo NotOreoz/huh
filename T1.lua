@@ -31,10 +31,11 @@ local function notif(ST,TT)
     	Icon = "rbxassetid://"
     })
 end
+game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 
 if game.GameId == 2440500124 then 
+    repeat task.wait() until game.Workspace:FindFirstChild("CurrentRooms"):FindFirstChild("0")
     notif("Script Started",".")
-    game.Workspace:WaitForChild("CurrentRooms"):WaitForChild("0"):WaitForChild("StarterElevator")
     repeat
         fireproximityprompt(game.Workspace.CurrentRooms["0"].StarterElevator.Model.Model.SkipButton.SkipPrompt)
         wait(3)
@@ -107,7 +108,6 @@ if game.GameId == 2440500124 then
             game.Players.LocalPlayer.Character.Humanoid.Health = 0
             wait(5)
             game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
-            syn.queue_on_teleport(loadstring(game:HttpGet("https://raw.githubusercontent.com/NotOreoz/huh/main/T1"))())
             wait(999)
         end
         for _,v in pairs(game:GetService("Workspace").CurrentRooms:GetChildren()) do 
@@ -159,6 +159,6 @@ if game.GameId == 2440500124 then
             end
         end
     end)
-else
-    notif("Go In Game","Go Into an Elevator and execute Ingame")
 end
+
+local queue_on_teleport = queue_on_teleport or syn andsyn.queue_on_teleport [[repeat wait() until game:IsLoaded() wait(7) loadstring(game:HttpGet("https://raw.githubusercontent.com/NotOreoz/huh/main/T1"))()]]
