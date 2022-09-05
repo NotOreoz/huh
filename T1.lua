@@ -1,6 +1,6 @@
 getgenv().Main_Settings = {
     ["Time_Between_Doors"] = 0.1,
-    ["Wait_On_Locked_Doors"] = 0.9
+    ["Wait_On_Locked_Doors"] = 0.8
 }
 
 local Exploit = (syn and not is_sirhurt_closure and not pebc_execute and "Synapse") or ("Unsupported")
@@ -82,6 +82,12 @@ if game.GameId == 2440500124 then
     game:GetService("Workspace").CurrentRooms.ChildAdded:Connect(function(v)
         CurrentRoomNum = tonumber(v.Name)-1 
         print("Room:",CurrentRoomNum) 
+        if CurrentRoomNum == 50 then 
+            game.Players.LocalPlayer.Character.Humanoid.Health = 0
+            wait(5)
+            game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
+            wait(math.huge)
+        end
         for _,v in pairs(game:GetService("Workspace").CurrentRooms:GetChildren()) do 
             RoomNum = tonumber(v.Name)
             CurrentRoom = v
