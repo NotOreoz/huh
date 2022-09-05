@@ -2,9 +2,8 @@ repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name) 
 repeat task.wait() until game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart")
 repeat task.wait() until game.Workspace:FindFirstChild("CurrentRooms")
-repeat task.wait() until game.Workspace:FindFirstChild("CurrentRooms"):FindFirstChild("0")
 local function notif(ST,TT) game:GetService("StarterGui"):SetCore("SendNotification",{ Title = ST, Text = TT, Icon = "rbxassetid://"}) end
-
+wait(7)
 if game.GameId == 2440500124 then 
     notif("Script Started","Press Del (SynX Internal UI To see whats happening.")
     repeat
