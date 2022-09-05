@@ -18,7 +18,6 @@ if game.GameId == 2440500124 then
     local RoomNum = 0
     local CurrentRoomNum = 1
     local CurrentRoom = nil
-    local Room50DisableAutoRestart = false
     for _,v in pairs(game:GetService("Workspace").CurrentRooms:GetChildren()) do 
         CurrentRoom = v
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Hidden.CFrame
@@ -32,7 +31,6 @@ if game.GameId == 2440500124 then
         CurrentRoomNum = CurrentRoomNum + 1
         if CurrentRoomNum >= 50  then 
             notif("Reached 50","Restarting")
-            Room50DisableAutoRestart = true
             game.Players.LocalPlayer.Character.Humanoid.Health = 0
             wait(5)
             game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
@@ -70,13 +68,12 @@ spawn(function()
     for i = 1, 35 do 
         print(i.."s | Restarting at 35s")
         if i == 35 or game.Players.LocalPlayer.Character.Humanoid.Health ~= 100 then
-            if Room50DisableAutoRestart == true then 
-                notif("Restarting","Automatic Restart (35s) Or you Took Damage.")
-                game.Players.LocalPlayer.Character.Humanoid.Health = 0
-                wait(5)
-                game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
-                wait(math.huge)
-            end
+            notif("Restarting","Automatic Restart (35s) Or you Took Damage.")
+            game.Players.LocalPlayer.Character.Humanoid.Health = 0
+            wait(5)
+            game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
+            wait(25)
+            game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
         end
         wait(1)
     end
