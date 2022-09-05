@@ -1,11 +1,17 @@
 repeat task.wait() until game:IsLoaded()
+print("Game Loaded")
 repeat task.wait() until game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name) 
+print("Found Player")
 repeat task.wait() until game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("HumanoidRootPart")
+print("Found Player HumanoidRootPart")
 repeat task.wait() until game.Workspace:FindFirstChild("CurrentRooms")
+print("Found CurrentRoom Folder")
 local function notif(ST,TT) game:GetService("StarterGui"):SetCore("SendNotification",{ Title = ST, Text = TT, Icon = "rbxassetid://"}) end
 wait(7)
+print("Wait 7 Over")
 if game.GameId == 2440500124 then 
     notif("Script Started",".")
+    print("Started")
     repeat
         fireproximityprompt(game.Workspace.CurrentRooms["0"].StarterElevator.Model.Model.SkipButton.SkipPrompt)
         game:GetService("ReplicatedStorage").Bricks.PreRunShop:FireServer({})
@@ -13,6 +19,7 @@ if game.GameId == 2440500124 then
     until game.Workspace:FindFirstChild("CurrentRooms"):FindFirstChild("0"):FindFirstChild("StarterElevator"):FindFirstChild("DoorHitbox"):FindFirstChild("BillboardGui"):FindFirstChild("Seconds").Text == ""
     if game.Players.LocalPlayer.Character:FindFirstChild("Collision") then 
         game.Players.LocalPlayer.Character.Collision:Destroy()
+        print("Destroyed Collision")
     end
     local KeyFound = false
     local RoomNum = 0
@@ -20,6 +27,7 @@ if game.GameId == 2440500124 then
     local CurrentRoom = nil
     for _,v in pairs(game:GetService("Workspace").CurrentRooms:GetChildren()) do 
         CurrentRoom = v
+        print("Starting First 3 Rooms")
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CurrentRoom.Door.Hidden.CFrame
         firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, CurrentRoom.Door.Hidden, 0)
         wait(0.3)
@@ -29,12 +37,14 @@ if game.GameId == 2440500124 then
         repeat task.wait() until v:FindFirstChild("Door")
         CurrentRoomNum = CurrentRoomNum + 1
         if CurrentRoomNum >= 50  then 
+            print("Restarting, Reached 50")
             notif("Reached 50","Restarting")
             game.Players.LocalPlayer.Character.Humanoid.Health = 1
             wait(math.huge)
         end
         if CurrentRoomNum <= 5 then 
             notif("Door "..CurrentRoomNum..", Anti Glitch","Waiting 2.5 Sec")
+            print("Anti Glitch",CurrentRoomNum)
             wait(2.5)
         end
         for _,v in pairs(game:GetService("Workspace").CurrentRooms:GetChildren()) do 
@@ -64,6 +74,7 @@ spawn(function()
     for i = 1, 45 do 
         print(i.."s | Restarting at 45s")
         if i == 45 or game.Players.LocalPlayer.Character.Humanoid.Health ~= 100 then
+            print("Restarting","Automatic Restart (45s), Door 50, Or you Took Damage.")
             notif("Restarting","Automatic Restart (45s), Door 50, Or you Took Damage.")
             game.Players.LocalPlayer.Character.Humanoid.Health = 0
             wait(5)
