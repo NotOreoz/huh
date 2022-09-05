@@ -1,3 +1,9 @@
+getgenv().Main_Settings = {
+    ["Time_Between_Doors"] = 0.1,
+    ["Wait_On_Locked_Doors"] = 0.8,
+    ["Skip_Locked_Doors"] = true
+}
+
 local Exploit = (syn and not is_sirhurt_closure and not pebc_execute and "Synapse") or ("Unsupported")
 
 if Exploit ~= "Synapse" then 
@@ -79,13 +85,6 @@ if game.GameId == 2440500124 then
                 task.wait(1/60)
             else
                 wait(Main_Settings["Time_Between_Doors"])
-            end
-            if game.Players.LocalPlayer.Character.Humanoid.Health < 99 then 
-                print("Took Damage, Restarting In 10s")
-                wait(10)
-                game.Players.LocalPlayer.Character.Humanoid.Health = 0
-                wait(5)
-                game:GetService("ReplicatedStorage").Bricks.PlayAgain:FireServer()
             end
         end
     end
