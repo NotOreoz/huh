@@ -5,7 +5,7 @@ repeat task.wait() until game.Workspace:FindFirstChild("CurrentRooms")
 local function notif(ST,TT) game:GetService("StarterGui"):SetCore("SendNotification",{ Title = ST, Text = TT, Icon = "rbxassetid://"}) end
 wait(7)
 if game.GameId == 2440500124 then 
-    notif("Script Started","Press Del (SynX Internal UI To see whats happening.")
+    notif("Script Started",".")
     repeat
         fireproximityprompt(game.Workspace.CurrentRooms["0"].StarterElevator.Model.Model.SkipButton.SkipPrompt)
         game:GetService("ReplicatedStorage").Bricks.PreRunShop:FireServer({})
