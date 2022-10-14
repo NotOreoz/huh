@@ -76,4 +76,3 @@ local function Divider(t)
 end
 
 Notif("Loaded","-",5,"Success")
-wait(999999999)
