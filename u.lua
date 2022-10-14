@@ -3,9 +3,8 @@ if W ~= nil then
     for _,v in next, W do
         v.Visible = false 
         v:Clear() 
-    end 
+    end
 end
-
 getgenv().A = {}
 getgenv().W = {}
 
@@ -19,7 +18,7 @@ function Notif(Title,Content,Duration,Type)
 end
 
 function Window(t)
-    W[#W+1] = RenderWindow.new(t["Name"])
+    W[#W+1] = RenderWindow.new(t["Name"].."                                                                                                                                                                                                                                                                                                               "..tostring(math.random(1,1000)))
     W[#W].CanResize = t["CanResize"]
     W[#W].DefaultSize = t["DefaultSize"]
     W[#W].Visible = true
@@ -53,6 +52,7 @@ end
 
 function Slider(t)
     A[#A+1] = W[t["Window"]]:IntSlider()
+    A[#A].Label = t["Name"]
     A[#A].Min = t["Min"]
     A[#A].Max = t["Max"]
     A[#A].Value = t["Default"]
