@@ -1,3 +1,4 @@
+if not game:IsLoaded() then repeat task.wait() until game:IsLoaded() end
 if W ~= nil then 
     for _,v in next, W do
         v.Visible = false 
@@ -72,5 +73,3 @@ end
 function Divider(t)
     W[t["Window"]]:Separator("")
 end
-
-Notif("Loaded_3","-",5,"Success")
