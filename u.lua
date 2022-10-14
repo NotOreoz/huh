@@ -75,4 +75,4 @@ local function Divider(t)
     W[t["Window"]]:Separator("")
 end
 
-Notif("Loaded","-",5,"Success")
+Notif("Loaded_2","-",5,"Success")
