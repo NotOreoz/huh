@@ -4,6 +4,7 @@ if W ~= nil then
         v.Visible = false 
         v:Clear() 
     end
+    wait(.1)
 end
 getgenv().A = {}
 getgenv().W = {}
@@ -18,7 +19,7 @@ function Notif(Title,Content,Duration,Type)
 end
 
 function Window(t)
-    W[#W+1] = RenderWindow.new(t["Name"].."                                                                                                                                                                                                                                                                                                               "..tostring(math.random(1,1000)))
+    W[#W+1] = RenderWindow.new(t["Name"]")
     W[#W].CanResize = t["CanResize"]
     W[#W].DefaultSize = t["DefaultSize"]
     W[#W].Visible = true
