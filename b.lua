@@ -61,6 +61,16 @@ function Slider(t)
     return
 end
 
+function ColorPicker(t)
+    A[#A+1] = W[t["Window"]]:ColorPicker()
+    A[#A].Label = t["Name"]
+    A[#A].Color = t["Color"]
+    A[#A].Alpha = 0
+    A[#A].UseAlpha = false
+    A[#A].OnUpdated:Connect(t["what it do"])
+    return
+end
+
 function TextBox(t)
     A[#A+1] = W[t["Window"]]:TextBox()
     A[#A].Size = t["Size"]
